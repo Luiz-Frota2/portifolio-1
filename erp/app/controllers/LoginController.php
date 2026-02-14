@@ -9,9 +9,14 @@ class LoginController extends Controller {
             $this->redirect('home/index');
         }
 
+        // Buscar Filiais para o dropdown
+        $filialModel = $this->model('Filial');
+        $filiais = $filialModel->getAll();
+
         $data = [
             'view' => 'login/index',
-            'error' => ''
+            'error' => '',
+            'filiais' => $filiais
         ];
 
         // Processar formulário de login via POST
@@ -28,7 +33,12 @@ class LoginController extends Controller {
                 $_SESSION['user_nome'] = $user['nome'];
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['user_nivel'] = $user['nivel'];
-                $_SESSION['user_filial_id'] = $user['filial_id'];
+                $_SESSION['user_nivel'] = $user['nivel'];
+                
+                // Definir Filial da Sessão (Pode ser a selecionada ou a do usuário)
+                // Se o usuário selecionou uma, usamos ela. Se não, a do cadastro.
+                $filial_selecionada = filter_input(INPUT_POST, 'filial_id', FILTER_VALIDATE_INT);
+                $_SESSION['user_filial_id'] = $filial_selecionada ? $filial_selecionada : $user['filial_id'];
 
                 $this->redirect('home/index');
             } else {

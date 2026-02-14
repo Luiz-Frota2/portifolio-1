@@ -57,8 +57,20 @@
 
             <form method="POST" action="?url=login/index">
                 <div class="mb-3">
+                    <label for="filial_id" class="form-label text-muted small">Selecione a Filial</label>
+                    <select class="form-select" id="filial_id" name="filial_id" required autofocus>
+                        <?php if (!empty($filiais)): ?>
+                            <?php foreach ($filiais as $filial): ?>
+                                <option value="<?= $filial['id'] ?>"><?= htmlspecialchars($filial['nome']) ?></option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option value="">Nenhuma filial encontrada</option>
+                        <?php endif; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="email" class="form-label text-muted small">E-mail Corporativo</label>
-                    <input type="email" class="form-control" id="email" name="email" required placeholder="seunome@empresa.com" autofocus>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="seunome@empresa.com">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label text-muted small">Senha</label>

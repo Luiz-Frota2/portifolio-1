@@ -32,7 +32,7 @@ spl_autoload_register(function ($class_name) {
 });
 
 // Roteamento Básico
-$url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
+$url = isset($_GET['url']) ? $_GET['url'] : 'login/index';
 $url = rtrim($url, '/');
 $url = filter_var($url, FILTER_SANITIZE_URL);
 $url = explode('/', $url);
