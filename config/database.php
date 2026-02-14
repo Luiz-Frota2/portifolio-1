@@ -3,8 +3,13 @@
 class Database {
     private static $host = 'localhost'; // Hostinger usually uses localhost, change if needed
     private static $db_name = 'u784961086_pdv';
-    private static $username = 'u784961086_pdv';
-    private static $password = 'h?o3JYzu1E';
+    // Local Development
+    private static $username = 'root';
+    private static $password = '';
+    
+    // Production (Hostinger) - Uncomment for deploy
+    // private static $username = 'u784961086_pdv';
+    // private static $password = 'h?o3JYzu1E';
     private static $conn = null;
 
     public static function connect() {
