@@ -22,7 +22,7 @@ class PrevendaController extends Controller {
     // AJAX Methods
     public function searchProduct() {
         if (isset($_GET['term'])) {
-            $productModel = $this->model('Product');
+            $productModel = $this->model('Produto');
             $results = $productModel->search($_GET['term']);
             echo json_encode($results);
         }

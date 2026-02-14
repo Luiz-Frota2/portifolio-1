@@ -25,10 +25,7 @@ class Controller {
     }
 
     public function redirect($url) {
-        // Usa a constante BASE_URL definida no config.php para redirecionamento correto
-        // Remove barras duplicadas se houver
-        $url = ltrim($url, '/');
-        header('Location: ' . BASE_URL . '/' . $url);
+        header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . '/erp_eletrica/public/' . $url);
         exit;
     }
 }

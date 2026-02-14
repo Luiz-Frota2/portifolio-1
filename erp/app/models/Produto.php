@@ -1,7 +1,7 @@
 <?php
-// app/models/Product.php
+// app/models/Produto.php
 
-class Product extends Model {
+class Produto extends Model {
     
     public function getAll($limit = 100) {
         $stmt = $this->db->prepare("SELECT p.*, c.nome as categoria_nome FROM produtos p LEFT JOIN categorias c ON p.categoria_id = c.id ORDER BY p.nome LIMIT :limit");

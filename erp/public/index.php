@@ -5,7 +5,6 @@
 session_start();
 
 // Carregar Configurações
-require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 
 // Autoload Simples (PSR-4 estaria melhor, mas vamos manter simples e robusto)
@@ -32,7 +31,7 @@ spl_autoload_register(function ($class_name) {
 });
 
 // Roteamento Básico
-$url = isset($_GET['url']) ? $_GET['url'] : 'login/index';
+$url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
 $url = rtrim($url, '/');
 $url = filter_var($url, FILTER_SANITIZE_URL);
 $url = explode('/', $url);

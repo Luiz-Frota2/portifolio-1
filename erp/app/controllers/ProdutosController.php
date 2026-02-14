@@ -1,7 +1,7 @@
 <?php
-// app/controllers/ProductsController.php
+// app/controllers/ProdutosController.php
 
-class ProductsController extends Controller {
+class ProdutosController extends Controller {
     
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
@@ -10,15 +10,15 @@ class ProductsController extends Controller {
     }
     
     public function index() {
-        $productModel = $this->model('Product');
-        $products = $productModel->getAll();
+        $produtoModel = $this->model('Produto');
+        $produtos = $produtoModel->getAll();
         
-        $this->view('products/index', ['view' => 'products/index', 'products' => $products]);
+        $this->view('produtos/index', ['view' => 'produtos/index', 'products' => $produtos]);
     }
 
     public function create() {
-        $productModel = $this->model('Product');
-        $categories = $productModel->getCategories();
+        $produtoModel = $this->model('Produto');
+        $categories = $produtoModel->getCategories();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
@@ -34,22 +34,22 @@ class ProductsController extends Controller {
                 'preco_avista' => str_replace(',', '.', $_POST['preco_avista'])
             ];
 
-            if ($productModel->create($data)) {
-                 $this->redirect('products/index');
+            if ($produtoModel->create($data)) {
+                 $this->redirect('produtos/index');
             }
         }
         
-        $this->view('products/form', ['view' => 'products/form', 'categories' => $categories, 'action' => 'create']);
+        $this->view('produtos/form', ['view' => 'produtos/form', 'categories' => $categories, 'action' => 'create']);
     }
 
     public function edit($id) {
-        $productModel = $this->model('Product');
-        $product = $productModel->getById($id);
-        $categories = $productModel->getCategories();
-        $estoque = $productModel->getEstoque($id);
+        $produtoModel = $this->model('Produto');
+        $produto = $produtoModel->getById($id);
+        $categories = $produtoModel->getCategories();
+        $estoque = $produtoModel->getEstoque($id);
 
-        if (!$product) {
-            $this->redirect('products/index');
+        if (!$produto) {
+            $this->redirect('produtos/index');
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -66,14 +66,14 @@ class ProductsController extends Controller {
                 'preco_avista' => str_replace(',', '.', $_POST['preco_avista'])
             ];
 
-            if ($productModel->update($id, $data)) {
-                 $this->redirect('products/index');
+            if ($produtoModel->update($id, $data)) {
+                 $this->redirect('produtos/index');
             }
         }
 
-        $this->view('products/form', [
-            'view' => 'products/form', 
-            'product' => $product, 
+        $this->view('produtos/form', [
+            'view' => 'produtos/form', 
+            'product' => $produto, 
             'categories' => $categories, 
             'estoque' => $estoque,
             'action' => 'edit'

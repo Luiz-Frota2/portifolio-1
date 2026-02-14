@@ -7,8 +7,8 @@ class HomeController extends Controller {
         // Verificar Autenticação (Simples por enquanto)
         if (!isset($_SESSION['user_id'])) {
             // Em produção, descomentar:
-            $this->redirect('login');
-            return;
+            // $this->redirect('login');
+            // return;
         }
 
         $data = [

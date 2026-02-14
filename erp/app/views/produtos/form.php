@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2"><?php echo ($action == 'create') ? 'Novo Produto' : 'Editar Produto'; ?></h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="?url=products/index" class="btn btn-sm btn-outline-secondary">
+        <a href="?url=produtos/index" class="btn btn-sm btn-outline-secondary">
             <i class="bi bi-arrow-left"></i> Voltar
         </a>
     </div>
@@ -11,7 +11,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="?url=products/<?php echo $action; ?><?php echo ($action == 'edit') ? '/' . $product['id'] : ''; ?>">
+        <form method="POST" action="?url=produtos/<?php echo $action; ?><?php echo ($action == 'edit') ? '/' . $product['id'] : ''; ?>">
             
             <div class="row g-3">
                 <!-- Identificação -->

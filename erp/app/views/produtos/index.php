@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Produtos</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="?url=products/create" class="btn btn-sm btn-primary">
+        <a href="?url=produtos/create" class="btn btn-sm btn-primary">
             <i class="bi bi-plus-lg"></i> Novo Produto
         </a>
     </div>
@@ -42,7 +42,7 @@
                             ?>
                         </td>
                         <td>
-                            <a href="?url=products/edit/<?php echo $product['id']; ?>" class="btn btn-sm btn-outline-secondary">
+                            <a href="?url=produtos/edit/<?php echo $product['id']; ?>" class="btn btn-sm btn-outline-secondary">
                                 <i class="bi bi-pencil"></i>
                             </a>
                         </td>
