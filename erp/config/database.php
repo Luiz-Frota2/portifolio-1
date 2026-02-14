@@ -4,7 +4,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'u784961086_pdv');
 define('DB_USER', 'u784961086_pdv');
-define('DB_PASS', 'h?o3JYzu1E');
+define('DB_PASS', 'Zs&T;DN@97>');
 define('DB_CHARSET', 'utf8mb4');
 
 try {
