@@ -12,14 +12,17 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVE
 $host = $_SERVER['HTTP_HOST'];
 
 // Detect path relative to web root
-// If the script is in /erp/public/index.php, dirname is /erp/public
-// We want the base url to be /erp/ (what the user sees) not /erp/public/
-// If accessing via http://localhost/erp/, the SCRIPT_NAME is /erp/index.php (via Rewrite) or /erp/public/index.php?
-// Let's rely on a simpler approach: relative to the installation.
+// If the script is in /erp/public/index.php, we want /erp
+$script_name = $_SERVER['SCRIPT_NAME']; // /erp/public/index.php
+$script_dir = dirname($script_name);    // /erp/public
 
-// Hardcoded for reliability in this specific environment, consistent with user context
-// Assuming the app is accessed via /erp/
-define('BASE_URL', '/erp');
+// Remove /public if it exists in the path (to allow access from root /erp)
+$base_path = str_replace('/public', '', $script_dir);
+
+// Ensure no trailing slash unless it's just /
+$base_path = rtrim($base_path, '/');
+
+define('BASE_URL', $protocol . $host . $base_path);
 
 // Directory Separator
 define('DS', DIRECTORY_SEPARATOR);
