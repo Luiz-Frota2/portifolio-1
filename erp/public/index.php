@@ -5,6 +5,7 @@
 session_start();
 
 // Carregar Configurações
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 
 // Autoload Simples (PSR-4 estaria melhor, mas vamos manter simples e robusto)
