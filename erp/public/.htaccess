@@ -2,6 +2,9 @@
     Options -MultiViews
     RewriteEngine On
     RewriteBase /erp/public/
+    
+    # Ensure index.php handles directory requests
+    DirectoryIndex index.php
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
