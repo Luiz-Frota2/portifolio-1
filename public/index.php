@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+// Validating for PHP Built-in Server
+if (php_sapi_name() === 'cli-server') {
+    $path = __DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if (is_file($path)) {
+        return false;
+    }
+}
+
 // Load basics
 require_once __DIR__ . '/../autoload.php';
 
