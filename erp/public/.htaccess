@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
     Options -MultiViews
     RewriteEngine On
-    RewriteBase /erp/public/
+    # RewriteBase /erp/public/
     
     # Ensure index.php handles directory requests
     DirectoryIndex index.php
